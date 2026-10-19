@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information saved upon registration or profile update",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID of user",
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "maxLength": 128
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User's full display name or nickname",
+          "maxLength": 100
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "User phone number if registered via phone",
+          "maxLength": 30
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address if registered via Google",
+          "maxLength": 150
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Profile avatar image URL",
+          "maxLength": 500
+        },
+        "authProvider": {
+          "type": "string",
+          "description": "Registration provider such as google or phone",
+          "enum": ["google.com", "phone", "custom", "anonymous"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account registration timestamp"
+        },
+        "lastLoginAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last login timestamp"
+        }
+      },
+      "required": ["uid", "authProvider"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Stores user profile data created when users sign up via Google or Phone OTP"
+    }
+  }
+}

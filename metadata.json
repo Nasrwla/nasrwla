@@ -1,0 +1,6 @@
+{
+  "name": "پلاتفۆرمی زێڕین - Golden Portal",
+  "description": "پلاتفۆرمی پێشکەوتووی کوردی بە دیزاینی شووشەی زێڕین، پشتگیری گووگڵ و ژمارە مۆبایل بە فایربیس و دەنگی بەخێرهاتن",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
